@@ -1,1 +1,59 @@
-/home/trytond-1.8.2/trytond/modules/ekd_currency/xml/currency.xml
+<?xml version="1.0"?>
+<!-- This file is part of Tryton.  The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<tryton>
+    <data>
+        <menuitem name="Currency Management" id="currency.menu_currency" sequence="3"
+            parent="ekd_system.menu_diction" groups="currency.group_currency_admin"
+            icon="tryton-currency"/>
+
+        <record model="ir.ui.view" id="currency_view_form">
+            <field name="model">currency.currency</field>
+            <field name="type">form</field>
+            <field name="inherit" ref="currency.currency_view_form"/>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <data>
+                    <xpath
+                        expr="/form/notebook/page[@id=&quot;rates&quot;]"
+                        position="before">
+                        <page string="Multy Rates" id="multy_rates">
+                            <field name="multy_rates" colspan="4" mode="tree,form,graph">
+                                <tree string="Rates">
+                                    <field name="date"/>
+                                    <field name="currency_from"/>
+                                    <field name="unit_from"/>
+                                    <field name="rate"/>
+                                </tree>
+                                <form string="Rate">
+                                    <label name="date"/>
+                                    <field name="date"/>
+                                    <label name="type_rate"/>
+                                    <field name="type_rate"/>
+                                    <label name="currency_from"/>
+                                    <field name="currency_from"/>
+                                    <label name="unit_from"/>
+                                    <field name="unit_from"/>
+                                    <label name="rate"/>
+                                    <field name="rate"/>
+                                </form>
+                                <graph string="Rates" type="line">
+                                    <x>
+                                        <field name="date"/>
+                                    </x>
+                                    <y>
+                                        <field name="rate" key="USD" color="red" empty="0" domain="[('currency_from.code','=','USD')]" />
+                                        <field name="rate" key="EUR" color="blue" empty="0" domain="[('currency_from.code','=','EUR')]" />
+                                    </y>
+                                </graph>
+                            </field>
+                        </page>
+
+                    </xpath>
+                </data>
+                ]]>
+            </field>
+        </record>
+
+    </data>
+</tryton>

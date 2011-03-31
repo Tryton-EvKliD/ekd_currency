@@ -1,0 +1,16 @@
+type,name,res_id,src,value,fuzzy
+error,ekd.currency.rate,0,A currency can only have one rate by date!,Валюта может иметь только одну курсовую разницу в день!,0
+field,"currency.currency,multy_rates",0,Rates,Курсы,0
+field,"ekd.currency.rate,code",0,Code Currency,Код валюты,0
+field,"ekd.currency.rate,code_from",0,Code Currency From,Код валюты с,0
+field,"ekd.currency.rate,currency",0,Currency to,Валюта,0
+field,"ekd.currency.rate,currency_from",0,Currency from,Валюта с,0
+field,"ekd.currency.rate,date",0,Date,Дата,0
+field,"ekd.currency.rate,rate",0,Rate,Ставка,0
+field,"ekd.currency.rate,rec_name",0,Name,Наименование,0
+field,"ekd.currency.rate,type_rate",0,Type Rate,Тип ставки,0
+field,"ekd.currency.rate,unit_from",0,Unit Currency,Единица валюты,0
+model,"ekd.currency.rate,name",0,Rate,Ставка,0
+selection,"ekd.currency.rate,type_rate",0,Main,Основной,0
+selection,"ekd.currency.rate,type_rate",0,Other,Прочий,0
+view,currency.currency,0,Multy Rates,Мульти курсы,0
